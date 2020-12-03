@@ -7,9 +7,9 @@ fun main() {
 
     for (line in input) {
         val (count, letter, password) = line.split(" ")
-        val letterCount = password.count { it == letter.first()  }
+        val occurrences = password.count { it == letter.first()  }
         val (low, high) = count.split("-").toInts()
-        if (letterCount in low..high) goodPasswords += 1
+        if (occurrences in low..high) goodPasswords += 1
     }
 
     println(goodPasswords)

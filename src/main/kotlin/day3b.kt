@@ -4,9 +4,6 @@ fun main() {
     val input = File("input/3.txt").readLines()
 
     val width = input[0].length
-    var x = 0
-    var y = 0
-    var trees = 0
     var result = 1L
 
     val steps = listOf(
@@ -18,6 +15,9 @@ fun main() {
     )
 
     for ((stepX, stepY) in steps) {
+        var x = 0
+        var y = 0
+        var trees = 0
         while (y < input.size) {
             if (input[y][x % width] == '#') {
                 trees++
@@ -26,10 +26,6 @@ fun main() {
             y += stepY
         }
         result *= trees
-
-        y = 0
-        x = 0
-        trees = 0
     }
 
     println(result)
