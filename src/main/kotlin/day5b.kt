@@ -1,18 +1,15 @@
 import java.io.File
 
 fun main() {
-    val input = File("input/5.txt").readLines()
+    val input = File("input/5.txt").readText()
+        .replace(Regex("[BR]"), "1")
+        .replace(Regex("[FL]"), "0")
+        .lines()
 
     val passes = mutableSetOf<Int>()
     for (line in input) {
-        val row = line.take(7)
-            .replace("B", "1")
-            .replace("F", "0")
-            .toInt(radix = 2)
-        val col = line.takeLast(3)
-            .replace("R", "1")
-            .replace("L", "0")
-            .toInt(radix = 2)
+        val row = line.take(7).toInt(radix = 2)
+        val col = line.takeLast(3).toInt(radix = 2)
         passes.add( row * 8 + col)
     }
 
