@@ -21,7 +21,7 @@ fun main() {
                 count++
                 break
             }
-            queue.addAll(edges[cur].orEmpty())
+            queue += edges[cur].orEmpty()
         }
     }
 
