@@ -2,7 +2,7 @@ import java.io.File
 
 fun main() {
     var input = File("input/11.txt").readLines().map { it.toCharArray() }.toTypedArray()
-    val seats = input.copy()
+    val seats = input.deepCopy()
 
     val height = input.indices
     val width = input.first().indices
@@ -18,9 +18,9 @@ fun main() {
     }
 
     do {
-        input = seats.map { it.clone() }.toTypedArray()
-        for (y in seats.indices) {
-            for (x in seats[y].indices) {
+        input = seats.deepCopy()
+        for (y in height) {
+            for (x in width) {
                 updateSeat(seats, x, y)
             }
         }
